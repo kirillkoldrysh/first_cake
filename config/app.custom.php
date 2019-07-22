@@ -253,8 +253,8 @@ return [
      */
     'Datasources' => [
         'default' => [
-            'className' => Connection::class,
-            'driver' => Mysql::class,
+            'className' => 'Cake\Database\Connection',
+            'driver' => 'Cake\Database\Driver\Mysql',
             'persistent' => false,
             'host' => 'localhost',
             /*
@@ -263,9 +263,9 @@ return [
              * the following line and set the port accordingly
              */
             //'port' => 'non_standard_port_number',
-            'username' => 'my_app',
-            'password' => 'secret',
-            'database' => 'my_app',
+            'username' => 'root',
+            'password' => '',
+            'database' => 'first_cake',
             /*
              * You do not need to set this flag to use full utf-8 encoding (internal default since CakePHP 3.6).
              */
@@ -301,15 +301,15 @@ return [
          * The test connection is used during the test suite.
          */
         'test' => [
-            'className' => 'Cake\Database\Connection',
-            'driver' => 'Cake\Database\Driver\Mysql',
+            'className' => Connection::class,
+            'driver' => Mysql::class,
             'persistent' => false,
             'host' => 'localhost',
             //'port' => 'non_standard_port_number',
-            'username' => 'root',
-            'password' => '',
-            'database' => 'first_cake',
-            'encoding' => 'utf8mb4',
+            'username' => 'my_app',
+            'password' => 'secret',
+            'database' => 'test_myapp',
+            //'encoding' => 'utf8mb4',
             'timezone' => 'UTC',
             'cacheMetadata' => true,
             'quoteIdentifiers' => false,

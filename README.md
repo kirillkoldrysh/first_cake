@@ -31,7 +31,9 @@ automated upgrades, so you have to do any updates manually.
 ## Configuration
 
 Read and edit `config/app.php` and setup the `'Datasources'` 
-Copy `'config/app.custom.php'` to `'config/app.php'` for custom configuration for this app.
+For custom configuration you can (after installation) copy `'Datasources'` 
+from `'config/app.custom.php'` to `'config/app.php'`.
+ 
 
 ### Database
 
