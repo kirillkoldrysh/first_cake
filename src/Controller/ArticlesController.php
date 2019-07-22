@@ -5,7 +5,8 @@ namespace App\Controller;
 class ArticlesController extends AppController
 {
     // application/articles/index
-    public function index() {
+    public function index()
+    {
         $this->loadComponent('Paginator');
         // fetch paginate set of articles
         // from the database, using Article Model
@@ -13,5 +14,11 @@ class ArticlesController extends AppController
         $articles = $this->Paginator->paginate($this->Articles->find());
         // pass the articles to the Template
         $this->set(compact('articles'));
+    }
+
+    public function view($slug = null)
+    {
+        $article = $this->Articles->findBySlug($slug)->firstOrFail();
+        $this->set(compact('article'));
     }
 }
