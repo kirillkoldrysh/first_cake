@@ -4,7 +4,7 @@ namespace App\Controller;
 
 class ArticlesController extends AppController
 {
-    // localhost/articles/index
+    // application/articles/index
     public function index() {
         $this->loadComponent('Paginator');
         // fetch paginate set of articles
