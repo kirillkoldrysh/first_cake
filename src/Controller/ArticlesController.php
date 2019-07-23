@@ -14,7 +14,7 @@ class ArticlesController extends AppController
 
     // application/articles/index
     public function index()
-    {        
+    {
         // fetch paginate set of articles
         // from the database, using Article Model
         // that is automatically loaded via naming conventions
@@ -49,7 +49,8 @@ class ArticlesController extends AppController
         $this->set('article', $article);
     }
 
-    public function edit($slug) {
+    public function edit($slug)
+    {
         $article = $this->Articles->findBySlug($slug)->firstOrFail();
         if ($this->request->is(['post', 'put'])) {
             $this->Articles->patchEntity($article, $this->request->getData());
@@ -61,5 +62,16 @@ class ArticlesController extends AppController
         }
 
         $this->set('article', $article);
+    }
+
+    public function delete($slug)
+    {
+        $this->request->allowMethod(['post', 'delete']);
+
+        $article = $this->Articles->findBySlug($slug)->firstOrFail();
+        if ($this->Articles->delete($article)) {
+            $this->Flash->success(__('The {0} article has been deleted.', $article->title));
+            return $this->redirect(['action' => 'index']);
+        }
     }
 }
