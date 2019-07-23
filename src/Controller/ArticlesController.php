@@ -52,7 +52,7 @@ class ArticlesController extends AppController
     public function edit($slug) {
         $article = $this->Articles->findBySlug($slug)->firstOrFail();
         if ($this->request->is(['post', 'put'])) {
-            $this->Articles-patchEntity($article, $this->request->getData());
+            $this->Articles->patchEntity($article, $this->request->getData());
             if ($this->Articles->save($article)) {
                 $this->Flash->success(__('Your article has been updated.'));
                 return $this->redirect(['action' => 'index']);
