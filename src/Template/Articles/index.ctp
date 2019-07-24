@@ -2,6 +2,7 @@
 
 <h1>Articles</h1>
 <?= $this->Html->link('Add Article', ['action' => 'add']) ?>
+<?= $this->Html->link('Tags', '/tags'); ?>
 <table>
     <tr>
         <th>Title</th>
@@ -26,7 +27,7 @@
                 ['action' => 'delete', $article->slug],
                 ['confirm' => 'Are you sure?']); 
             ?>
-        </td>
+        </td>       
     </tr>
     <?php endforeach; ?>
 </table>
