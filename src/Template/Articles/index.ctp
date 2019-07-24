@@ -20,11 +20,11 @@
             <?= $article->created->format(DATE_RFC850) ?>
         </td>
         <td>
-            <?= $this->Html->link('Edit', ['action' => 'edit', $article->slug]) ?>
-            <?= $this->Form->postLink(
+            <?= $this->Html->link('Edit', ['action' => 'edit', $article->slug]) ?>            
+             <?= $this->Form->postLink(
                 'Delete', 
                 ['action' => 'delete', $article->slug],
-                ['confirm' => 'Are you sure?']) 
+                ['confirm' => 'Are you sure?']); 
             ?>
         </td>
     </tr>
