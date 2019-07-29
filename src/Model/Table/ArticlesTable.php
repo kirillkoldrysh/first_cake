@@ -15,9 +15,8 @@ class ArticlesTable extends Table
         $this->addBehavior('Timestamp');
         // for association between Articles and Tags
         $this->belongsToMany('Tags', [
-            'foreignKey' => 'article_id',
-            'targetForeignKey' => 'tag_id',
-            'joinTable' => 'articles_tags'
+            'joinTable' => 'articles_tags',
+            'depentent' => true
         ]);
     }
 
