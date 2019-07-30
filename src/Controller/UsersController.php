@@ -103,4 +103,20 @@ class UsersController extends AppController
 
         return $this->redirect(['action' => 'index']);
     }
+/**
+ * Login method
+ * 
+ * @return void
+ */
+    public function login()
+    {
+        if ($this->request->is('post')) {
+            $user = $this->Auth->identify();
+            if ($user) {
+                $this->Auth->setUser($user);
+                return $this->redirect($this->Auth->redirectUrl());
+            }
+            $this->Flash->error('Your username or password is incorrect, so try again. And eat my cake.');
+        }
+    }
 }
