@@ -52,6 +52,7 @@ class AppController extends Controller
          */
         //$this->loadComponent('Security');
         $this->loadComponent('Auth', [
+            'authorize' => 'Controller',
             'authenticate' => [
                 'Form' => [
                     'fields' => [
@@ -71,5 +72,11 @@ class AppController extends Controller
         // Allow the display action so our PagesController
         // continue to work. Also enable the read only actions.
         $this->Auth->allow(['display', 'view', 'index']);
+    }
+
+    public function isAuthorized($user)
+    {
+        // By default deny access
+        return false;
     }
 }
